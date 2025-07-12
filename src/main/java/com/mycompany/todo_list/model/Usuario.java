@@ -16,9 +16,10 @@ public class Usuario {
     private LocalDate dataCriacao;
     private List<GrupoTarefas> grupos; // pastas ou diretórios
     private List<Desafio> desafios;
+    private boolean admin;
 
     //===== Construtores
-    public Usuario(Long id, String nome, String email, String senhaHash, LocalDate dataCriacao, List<GrupoTarefas> grupos, List<Desafio> desafios) {
+    public Usuario(Long id, String nome, String email, String senhaHash, LocalDate dataCriacao, List<GrupoTarefas> grupos, List<Desafio> desafios, boolean admin) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -26,6 +27,7 @@ public class Usuario {
         this.dataCriacao = dataCriacao;
         this.grupos = grupos;
         this.desafios = desafios;
+        this.admin = admin;
     }
 
     public Usuario() {
@@ -86,5 +88,13 @@ public class Usuario {
 
     public void setDesafios(List<Desafio> desafios) {
         this.desafios = desafios;
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 }
