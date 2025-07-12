@@ -15,11 +15,13 @@ public class Tarefa {
     private LocalDate prazo;
     private boolean concluida;
     private GrupoTarefas grupo; // referência para o grupo (pasta)
+    private long grupo_id;
     private Desafio desafio; // se fizer parte de um desafio
-    private int prioridade; // 1 a 5, por exemplo
+    private long desafio_id;
+    private int prioridade;
 
     //===== Construtores
-    public Tarefa(long id, String titulo, String descricao, LocalDate dataCriacao, LocalDate prazo, boolean concluida, GrupoTarefas grupo, Desafio desafio, int prioridade) {
+    public Tarefa(long id, String titulo, String descricao, LocalDate dataCriacao, LocalDate prazo, boolean concluida, GrupoTarefas grupo, long grupo_id, Desafio desafio, long desafio_id, int prioridade) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
@@ -27,7 +29,9 @@ public class Tarefa {
         this.prazo = prazo;
         this.concluida = concluida;
         this.grupo = grupo;
+        this.grupo_id = grupo_id;
         this.desafio = desafio;
+        this.desafio_id = desafio_id;
         this.prioridade = prioridade;
     }
     
@@ -35,6 +39,7 @@ public class Tarefa {
     }
     
     //==== Getters e Setters
+
     public long getId() {
         return id;
     }
@@ -91,12 +96,28 @@ public class Tarefa {
         this.grupo = grupo;
     }
 
+    public long getGrupo_id() {
+        return grupo_id;
+    }
+
+    public void setGrupo_id(long grupo_id) {
+        this.grupo_id = grupo_id;
+    }
+
     public Desafio getDesafio() {
         return desafio;
     }
 
     public void setDesafio(Desafio desafio) {
         this.desafio = desafio;
+    }
+
+    public long getDesafio_id() {
+        return desafio_id;
+    }
+
+    public void setDesafio_id(long desafio_id) {
+        this.desafio_id = desafio_id;
     }
 
     public int getPrioridade() {

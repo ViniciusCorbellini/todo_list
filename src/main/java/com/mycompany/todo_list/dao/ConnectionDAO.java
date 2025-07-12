@@ -19,8 +19,8 @@ public class ConnectionDAO {
 
     public static Connection getConnection() throws SQLException {
         String url = "jdbc:mysql://localhost:3306/todo_list";
-        String user = "root";
-        String password = "V1n1MySQLroot!13022007@";
+        String user = "seu_user_aqui";
+        String password = "sua_senha_aqui";
 
         return DriverManager.getConnection(url, user, password); // obtem a conexao
     }

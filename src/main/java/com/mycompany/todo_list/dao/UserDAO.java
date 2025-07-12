@@ -60,7 +60,7 @@ public class UserDAO {
                      WHERE id = ?;""";
 
         Connection con = ConnectionDAO.getConnection();
-        PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement ps = con.prepareStatement(sql);
 
         ps.setLong(1, id);
         
@@ -71,7 +71,7 @@ public class UserDAO {
             String email = rs.getString("email");
 
             Timestamp timestamp = rs.getTimestamp("data_criacao");
-            LocalDate data_criacao = timestamp != null ? timestamp.toLocalDateTime().toLocalDate() : null;
+            LocalDate data_criacao = timestamp.toLocalDateTime().toLocalDate();
 
             Boolean usuario_admin = rs.getBoolean("usuario_admin");
             return new Usuario(id, nome, email, data_criacao, usuario_admin);
@@ -120,7 +120,7 @@ public class UserDAO {
                      WHERE id = ?;""";
 
         Connection con = ConnectionDAO.getConnection();
-        PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement ps = con.prepareStatement(sql);
 
         ps.setString(1, u.getNome());
         ps.setString(2, u.getEmail());
@@ -138,7 +138,7 @@ public class UserDAO {
                      WHERE id = ?;""";
 
         Connection con = ConnectionDAO.getConnection();
-        PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement ps = con.prepareStatement(sql);
         ps.setLong(1, id);
 
         int affectedRows = ps.executeUpdate();

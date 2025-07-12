@@ -16,10 +16,11 @@ public class Desafio {
     private LocalDate dataFim;
     private List<Tarefa> tarefas;
     private Usuario dono;
+    private Long dono_id;
     private double completo;
 
     //===== Construtores
-    public Desafio(Long id, String nome, String descricao, LocalDate dataInicio, LocalDate dataFim, List<Tarefa> tarefas, Usuario dono, double completo) {
+    public Desafio(Long id, String nome, String descricao, LocalDate dataInicio, LocalDate dataFim, List<Tarefa> tarefas, Usuario dono, Long dono_id, double completo) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -27,6 +28,7 @@ public class Desafio {
         this.dataFim = dataFim;
         this.tarefas = tarefas;
         this.dono = dono;
+        this.dono_id = dono_id;
         this.completo = completo;
     }
 
@@ -90,7 +92,15 @@ public class Desafio {
         this.dono = dono;
     }
 
-    public double isCompleto() {
+    public Long getDono_id() {
+        return dono_id;
+    }
+
+    public void setDono_id(Long dono_id) {
+        this.dono_id = dono_id;
+    }
+
+    public double getCompleto() {
         return completo;
     }
 
