@@ -29,6 +29,31 @@ public class Usuario {
         this.desafios = desafios;
         this.admin = admin;
     }
+    
+    public Usuario(Long id, String nome, String email, LocalDate dataCriacao, boolean admin) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.dataCriacao = dataCriacao;
+        this.admin = admin;
+    }
+    
+    public Usuario(Long id, String nome, String email, String senhaHash, LocalDate dataCriacao, boolean admin) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.senhaHash = senhaHash;
+        this.dataCriacao = dataCriacao;
+        this.admin = admin;
+    }
+    
+    public Usuario(String nome, String email, String senhaHash, LocalDate dataCriacao, boolean admin) {
+        this.nome = nome;
+        this.email = email;
+        this.senhaHash = senhaHash;
+        this.dataCriacao = dataCriacao;
+        this.admin = admin;
+    }
 
     public Usuario() {
     }
@@ -96,5 +121,10 @@ public class Usuario {
 
     public void setAdmin(boolean admin) {
         this.admin = admin;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "id=" + id + ", nome=" + nome + ", email=" + email + ", senhaHash=" + senhaHash + ", dataCriacao=" + dataCriacao + ", grupos=" + grupos + ", desafios=" + desafios + ", admin=" + admin + '}';
     }
 }
