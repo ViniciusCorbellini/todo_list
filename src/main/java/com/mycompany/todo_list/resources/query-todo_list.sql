@@ -1,4 +1,3 @@
--- query bd do todo list hehehe
 CREATE DATABASE IF NOT EXISTS todo_list;
 use todo_list;
 
@@ -7,7 +6,8 @@ CREATE TABLE IF NOT EXISTS usuario (
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(150) NOT NULL UNIQUE,
     senha_hash VARCHAR(255) NOT NULL,
-    data_criacao DATE NOT NULL
+    data_criacao DATE NOT NULL,
+    adim BOOLEAN NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS grupo_de_tarefas (
