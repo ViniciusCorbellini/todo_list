@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS usuario (
     email VARCHAR(150) NOT NULL UNIQUE,
     senha_hash VARCHAR(255) NOT NULL,
     data_criacao DATE NOT NULL,
-    adim BOOLEAN NOT NULL
+    usuario_admin BOOLEAN NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS grupo_de_tarefas (
