@@ -44,8 +44,8 @@ public class DesafioDAO {
 
         ResultSet rs = ps.getGeneratedKeys();
         if (rs.next()) {
-            long uId = rs.getLong(1);
-            d.setId(uId);
+            long dId = rs.getLong(1);
+            d.setId(dId);
         } else {
             throw new SQLException("Erro na inserção do desafio no BD.");
         }

@@ -14,16 +14,18 @@ public class GrupoTarefas {
     private String descricao;
     private LocalDate dataCriacao;
     private Usuario dono;
+    private Long dono_id;
     private List<Tarefa> tarefas;
 
     
     //===== Construtores
-    public GrupoTarefas(Long id, String nome, String descricao, LocalDate dataCriacao, Usuario dono, List<Tarefa> tarefas) {
+    public GrupoTarefas(Long id, String nome, String descricao, LocalDate dataCriacao, Usuario dono, Long dono_id, List<Tarefa> tarefas) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.dataCriacao = dataCriacao;
         this.dono = dono;
+        this.dono_id = dono_id;
         this.tarefas = tarefas;
     }
 
@@ -69,6 +71,14 @@ public class GrupoTarefas {
 
     public void setDono(Usuario dono) {
         this.dono = dono;
+    }
+
+    public Long getDono_id() {
+        return dono_id;
+    }
+
+    public void setDono_id(Long dono_id) {
+        this.dono_id = dono_id;
     }
 
     public List<Tarefa> getTarefas() {
