@@ -22,14 +22,14 @@ public class TodoController {
     private GrupoDAO gdao;
     private TarefaDAO tdao;
     private UserDAO udao;
-
+    
     public TodoController(DesafioDAO ddao, GrupoDAO gdao, TarefaDAO tdao, UserDAO udao) {
         this.ddao = ddao;
         this.gdao = gdao;
         this.tdao = tdao;
         this.udao = udao;
     }
-
+    
     //Controller da tarefa
     public void createTask(Tarefa t) throws SQLException, InvalidObjectException, EntityNotFoundException {
         if (!validTask(t)) {
@@ -96,6 +96,39 @@ public class TodoController {
         }
     }
     
+    //Controller do Desafio
+    public void createDesafio(Desafio d) throws InvalidObjectException, SQLException{
+        if (!validChallenge(d)) {
+            throw new InvalidObjectException("Desafio inválido");
+        }
+        ddao.insert(d);
+    }
+    
+    public Desafio findChallengeById(long id) throws SQLException, EntityNotFoundException {
+        return ddao.findByID(id);
+    }
+    
+    public List<Desafio> findAllChallenges() throws SQLException, EntityNotFoundException {
+        return ddao.findAll();
+    }
+    
+    public void updateChallenge(Desafio new_d) throws SQLException, EntityNotFoundException {
+        Desafio d = ddao.findByID(new_d.getId());
+        updateAtributes(d, new_d);
+        
+        boolean updated = ddao.update(d);
+        if (!updated) {
+            throw new SQLException("Não foi possível realizar o update do desafio com id " + d.getId());
+        }
+    }
+    
+    public void deleteChallenge(long id) throws SQLException, EntityNotFoundException {
+        boolean deleted = ddao.delete(id);
+        if (!deleted) {
+            throw new SQLException("Não foi possível realizar a deleção do desafio com id " + id);
+        }
+    }
+    
     //===== Funções auxiliares
     /**
      * Valida os atributos da task Função auxiliar para createTask()
@@ -144,7 +177,7 @@ public class TodoController {
     }
     
     /**
-     * Atualiza os atributos não nulos da nova tarefa para a tarefa base
+     * Atualiza os atributos não nulos do novo grupo para o grupo base
      */
     private void updateAtributes(GrupoTarefas g, GrupoTarefas new_g) {
         if (!new_g.getNome().isBlank()) {
@@ -153,6 +186,39 @@ public class TodoController {
 
         if (!new_g.getDescricao().isBlank()) {
             g.setDescricao(new_g.getDescricao());
+        }
+    }
+    
+    /**
+     * Valida os atributos da task Função auxiliar para createTask()
+     *
+     * @return true se a tarefa possuir todos os campos invalidos
+     */
+    private boolean validChallenge(Desafio d) {
+        return !d.getNome().isBlank()
+                && !d.getDescricao().isBlank()
+                && (d.getDataInicio() != null)
+                && (d.getDataFim() != null);
+    }
+
+    /**
+     * Atualiza os atributos não nulos do novo desafio para o desafio base
+     */
+    private void updateAtributes(Desafio d, Desafio new_d) {
+        if (!new_d.getNome().isBlank()) {
+            d.setNome(new_d.getNome());
+        }
+
+        if (!new_d.getDescricao().isBlank()) {
+            d.setDescricao(new_d.getDescricao());
+        }
+
+        if (new_d.getDataFim() != null) {
+            d.setDataFim(new_d.getDataFim());
+        }
+        
+        if (new_d.getCompleto() != null) {
+            d.setCompleto(new_d.getCompleto());
         }
     }
 }
