@@ -84,15 +84,15 @@ public class TarefaDAO {
 
             Boolean concluida = rs.getBoolean("concluida");
             Integer prioridade = rs.getInt("prioridade");
-            Integer grupo_id = rs.getInt("grupo_id");
-            Integer desafio_id = rs.getInt("desafio_id");
+            Long grupo_id = rs.getLong("grupo_id");
+            Long desafio_id = rs.getLong("desafio_id");
 
             return new Tarefa(id, titulo, descricao, data_criacao, prazo, concluida, null, grupo_id, null, desafio_id, prioridade);
         }
         throw new EntityNotFoundException("Tarefa com id " + id);
     }
 
-    public List<Tarefa> findAll(Long id) throws SQLException, EntityNotFoundException {
+    public List<Tarefa> findAll() throws SQLException, EntityNotFoundException {
         List<Tarefa> ans = new ArrayList<>();
 
         String sql = """
@@ -104,6 +104,7 @@ public class TarefaDAO {
 
         ResultSet rs = ps.executeQuery();
         if (rs.next()) {
+            Long id = rs.getLong("id");
             String titulo = rs.getString("titulo");
             String descricao = rs.getString("descricao");
 
@@ -114,8 +115,8 @@ public class TarefaDAO {
 
             Boolean concluida = rs.getBoolean("concluida");
             Integer prioridade = rs.getInt("prioridade");
-            Integer grupo_id = rs.getInt("grupo_id");
-            Integer desafio_id = rs.getInt("desafio_id");
+            Long grupo_id = rs.getLong("grupo_id");
+            Long desafio_id = rs.getLong("desafio_id");
 
             ans.add(new Tarefa(id, titulo, descricao, data_criacao, prazo, concluida, null, grupo_id, null, desafio_id, prioridade));
         }

@@ -8,20 +8,20 @@ import java.time.LocalDate;
  */
 public class Tarefa {
 
-    private long id;
+    private Long id;
     private String titulo;
     private String descricao;
     private LocalDate dataCriacao;
     private LocalDate prazo;
     private boolean concluida;
     private GrupoTarefas grupo; // referência para o grupo (pasta)
-    private long grupo_id;
+    private Long grupo_id;
     private Desafio desafio; // se fizer parte de um desafio
-    private long desafio_id;
-    private int prioridade;
+    private Long desafio_id;
+    private Integer prioridade;
 
     //===== Construtores
-    public Tarefa(long id, String titulo, String descricao, LocalDate dataCriacao, LocalDate prazo, boolean concluida, GrupoTarefas grupo, long grupo_id, Desafio desafio, long desafio_id, int prioridade) {
+    public Tarefa(long id, String titulo, String descricao, LocalDate dataCriacao, LocalDate prazo, boolean concluida, GrupoTarefas grupo, Long grupo_id, Desafio desafio, Long desafio_id, Integer prioridade) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
@@ -39,7 +39,6 @@ public class Tarefa {
     }
     
     //==== Getters e Setters
-
     public long getId() {
         return id;
     }
@@ -96,11 +95,11 @@ public class Tarefa {
         this.grupo = grupo;
     }
 
-    public long getGrupo_id() {
+    public Long getGrupo_id() {
         return grupo_id;
     }
 
-    public void setGrupo_id(long grupo_id) {
+    public void setGrupo_id(Long grupo_id) {
         this.grupo_id = grupo_id;
     }
 
@@ -112,19 +111,19 @@ public class Tarefa {
         this.desafio = desafio;
     }
 
-    public long getDesafio_id() {
+    public Long getDesafio_id() {
         return desafio_id;
     }
 
-    public void setDesafio_id(long desafio_id) {
+    public void setDesafio_id(Long desafio_id) {
         this.desafio_id = desafio_id;
     }
 
-    public int getPrioridade() {
+    public Integer getPrioridade() {
         return prioridade;
     }
 
-    public void setPrioridade(int prioridade) {
+    public void setPrioridade(Integer prioridade) {
         this.prioridade = prioridade;
     }
 }
