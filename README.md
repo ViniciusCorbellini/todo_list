@@ -33,11 +33,11 @@ Este sistema Java com interface gráfica (Swing) permite o gerenciamento de tare
 ### Requisitos
 - Java JDK 8 ou superior
 - MySQL Server
-- Driver JDBC, FlatLaf, ItextPDF, MySQL-Connector  (incluso no classpath via NetBeans)
+- Bibliotecas: Driver JDBC, FlatLaf, ItextPDF, MySQL-Connector  (incluso no classpath via NetBeans)
 - IDE recomendada: **NetBeans**
 
 ### Como executar
-1. Abra o projeto `Trabalho3` no NetBeans.
+1. Baixe e abra o projeto `Trabalho3` no NetBeans.
 2. Verifique as configurações do banco de dados em `ConnectionDAO.java`.
 3. Compile o projeto (F11).
 4. Execute a aplicação (F6).
